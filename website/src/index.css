@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+          @font-face {
+            font-family: "Gravesend Sans";
+            src: url("./fonts/fonnts.com-Gravesend_Sans_Light.otf")
+              format("opentype");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "Gravesend Sans";
+            src: url("./fonts/fonnts.com-Gravesend_Sans_Medium.otf")
+              format("opentype");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "Gravesend Sans";
+            src: url("./fonts/fonnts.com-Gravesend_Sans_Bold.otf")
+              format("opentype");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          /* Century Gothic Font Face */
+          @font-face {
+            font-family: "Century Gothic Custom";
+            src: url("./fonts/weezerfont.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "Gellix";
+            src: url("./fonts/Gellix-Light.ttf") format("truetype");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+          }
+          
+          @font-face {
+            font-family: "Gellix";
+            src: url("./fonts/Gellix-Regular.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          /* GravitaHUM Font Face - CORRECTED PATHS */
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-Hairline-BF6579288462586.otf")
+              format("opentype");
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-Thin-BF657928846b56d.otf")
+              format("opentype");
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-Light-BF65792884461506.otf")
+              format("opentype");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-ExtraLight-BF657928845d4e0.otf")
+              format("opentype");
+            font-weight: 350;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-Regular-BF6579288845edb5.otf")
+              format("opentype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-Medium-BF657928840175.otf")
+              format("opentype");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-Bold-BF657928841ed84.otf")
+              format("opentype");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-ExtraBold-BF65792883de486.otf")
+              format("opentype");
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "GravitaHUM";
+            src: url("/fonts/GravitaHUM-Black-BF65792882c3895.otf")
+              format("opentype");
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          /* Font utility classes */
+          .gravesend-sans {
+            font-family: "Gravesend Sans", "Inter", "Segoe UI", Tahoma, Geneva,
+              Verdana, sans-serif;
+          }
+
+          .roboto-font {
+            font-family: "Roboto", "Inter", "Segoe UI", Tahoma, Geneva, Verdana,
+              sans-serif;
+          }
+
+          .century-gothic {
+            font-family: "Century Gothic Custom", "Century Gothic", "Arial",
+              sans-serif;
+          }
+
+          .gellix-font {
+            font-family: "Gellix", "Inter", "Segoe UI", Tahoma, Geneva, Verdana,
+              sans-serif;
+          }
+
+          .gravita-font {
+            font-family: "GravitaHUM", "Inter", "Segoe UI", Tahoma, Geneva,
+              Verdana, sans-serif;
+          }
+
+          body {
+            overflow-x: hidden;
+          }
+
+          /* Smooth scrolling */
+          html {
+            scroll-behavior: smooth;
+          }
