@@ -63,10 +63,10 @@ function App() {
               font-display: swap;
             }
 
-            /* GravitaHUM Font Face - CORRECTED PATHS */
+            /* GravitaHUM Font Face - FIXED PATHS */
             @font-face {
               font-family: "GravitaHUM";
-              src: url("/fonts/GravitaHUM-Regular-BF6579288358f8b.otf") format("opentype");
+              src: url("/fonts/GravitaHUM-Regular-BF65792883358f8b.otf") format("opentype");
               font-weight: 400;
               font-style: normal;
               font-display: swap;
@@ -79,9 +79,21 @@ function App() {
               font-style: normal;
               font-display: swap;
             }
-            .gravita-font {
-              font-family: "GravitaHUM", "Inter", "Segoe UI", Tahoma, Geneva,
-                Verdana, sans-serif;
+
+            @font-face {
+              font-family: "GravitaHUM";
+              src: url("/fonts/GravitaHUM-Bold-BF657928841ed84.otf") format("opentype");
+              font-weight: 700;
+              font-style: normal;
+              font-display: swap;
+            }
+
+            @font-face {
+              font-family: "GravitaHUM";
+              src: url("/fonts/GravitaHUM-Black-BF65792882c3895.otf") format("opentype");
+              font-weight: 900;
+              font-style: normal;
+              font-display: swap;
             }
 
             /* Font utility classes */
@@ -110,6 +122,12 @@ function App() {
                 Verdana, sans-serif;
             }
 
+            /* Force GravitaHUM on all text elements */
+            .gravita-font * {
+              font-family: "GravitaHUM", "Inter", "Segoe UI", Tahoma, Geneva,
+                Verdana, sans-serif;
+            }
+
             body {
               overflow-x: hidden;
             }
@@ -117,6 +135,21 @@ function App() {
             /* Smooth scrolling */
             html {
               scroll-behavior: smooth;
+            }
+
+            /* Ensure numbers use GravitaHUM */
+            .gravita-font span,
+            .gravita-font h1,
+            .gravita-font h2,
+            .gravita-font h3,
+            .gravita-font h4,
+            .gravita-font h5,
+            .gravita-font h6,
+            .gravita-font p,
+            .gravita-font button,
+            .gravita-font div {
+              font-family: "GravitaHUM", "Inter", "Segoe UI", Tahoma, Geneva,
+                Verdana, sans-serif;
             }
           `}</style>
           <Routes>
