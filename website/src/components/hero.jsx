@@ -1,8 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Globe2, Sparkles } from 'lucide-react';
-import { useLanguage } from './Languagecontext';
-import { Link } from 'react-scroll';
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, TrendingUp, Globe2, Sparkles } from "lucide-react";
+import { useLanguage } from "./Languagecontext";
+import { Link } from "react-scroll";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -23,7 +23,7 @@ const Hero = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -33,29 +33,32 @@ const Hero = () => {
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: "easeInOut",
       },
     },
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden gravita-font">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden gravita-font"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 w-full h-full">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url("/2.jpg")',
           }}
         />
-        
+
         {/* Dark Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/60" />
-        
+
         {/* Gradient Overlay for blending */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black" />
-        
+
         {/* Green tint overlay for brand consistency */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-transparent to-green-900/10 mix-blend-overlay" />
       </div>
@@ -71,7 +74,7 @@ const Hero = () => {
           transition={{
             duration: 3,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -83,7 +86,7 @@ const Hero = () => {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: 1,
           }}
         />
@@ -96,7 +99,7 @@ const Hero = () => {
           transition={{
             duration: 3.5,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: 2,
           }}
         />
@@ -110,7 +113,10 @@ const Hero = () => {
           className="text-center"
         >
           {/* Badge */}
-          <motion.div variants={itemVariants} className="flex justify-center mb-6">
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center mb-6"
+          >
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-900/30 border border-green-500/30 rounded-full backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-green-400" />
               <span className="text-green-400 text-sm font-medium">
@@ -124,7 +130,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 "
           >
-            {t.hero.title}{' '}
+            {t.hero.title}{" "}
             <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
               {t.hero.titleHighlight}
             </span>
@@ -147,25 +153,33 @@ const Hero = () => {
           >
             <Link to="cta" spy={true} smooth={true} offset={-80} duration={500}>
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(34, 197, 94, 0.4)' }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 30px rgba(34, 197, 94, 0.4)",
+                }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all flex items-center space-x-2"
+                className="group px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all flex items-center space-x-2 cursor-pointer"
               >
-                <span className='gravita-font'>{t.hero.cta}</span>
+                <span className="gravita-font">{t.hero.cta}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>
-            <Link to="services" spy={true} smooth={true} offset={-80} duration={500}>
+            <Link
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border border-green-500/50 text-green-500 rounded-lg font-semibold hover:bg-green-900/20 transition-all gravita-font backdrop-blur-sm"
+                className="px-8 py-4 border border-green-500/50 text-green-500 rounded-lg font-semibold hover:bg-green-900/20 transition-all gravita-font backdrop-blur-sm cursor-pointer"
               >
                 {t.hero.learnMore}
               </motion.button>
             </Link>
           </motion.div>
-
           {/* Floating Icons */}
           <motion.div
             variants={itemVariants}
