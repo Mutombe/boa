@@ -18,6 +18,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      setLangDropdown(false); // Close language dropdown when menu opens
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const languages = [
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'nd', name: 'Ndebele', flag: '🇿🇼' },
@@ -47,18 +61,14 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex-shrink-0"
+            className="flex-shrink-0 relative z-50"
           >
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <div className="absolute inset-0 bg-green-500/20 rounded-full blur-xl"></div>
-                <div className="relative w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">B1</span>
+                <div className="absolute inset-0 bg-green-500/20 blur-xl"></div>
+                <div className="relative flex items-center justify-center w-24 h-13">
+                  <img src="/logo.png" alt="BridgeOne Logo" className="w-24 h-13" />
                 </div>
-              </div>
-              <div className="hidden sm:block">
-                <div className="text-white font-bold text-xl">BridgeOne</div>
-                <div className="text-green-500 text-xs tracking-wider">AFRICA</div>
               </div>
             </div>
           </motion.div>
@@ -141,7 +151,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center space-x-4">
+          <div className="lg:hidden flex items-center space-x-4 relative z-50">
             <button
               onClick={() => setLangDropdown(!langDropdown)}
               className="text-gray-300 hover:text-green-500"
@@ -165,7 +175,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-gray-900 border-t border-green-900/20"
+            className="lg:hidden bg-gray-900 border-t border-green-900/20 relative z-50"
           >
             <div className="px-4 py-2 space-y-1">
               {languages.map((lang) => (
@@ -190,45 +200,113 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Menu - Fullscreen */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-black/95 backdrop-blur-lg border-t border-green-900/20"
+            initial={{ opacity: 0, y: '-100%' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: '-100%' }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            className="lg:hidden fixed inset-0 z-40 bg-gradient-to-br from-black/95 via-green-950/95 to-black/95 backdrop-blur-lg"
           >
-            <div className="px-4 pt-2 pb-4 space-y-1">
-              {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-gray-300 hover:text-green-500 hover:bg-green-900/10 rounded-lg transition-colors cursor-pointer"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Link
-                to="cta"
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                onClick={() => setIsOpen(false)}
+            {/* Background overlay for depth */}
+            <div className="absolute inset-0 bg-black/40"></div>
+            
+            {/* Navigation Content */}
+            <div className="relative h-full flex flex-col">
+              {/* Header space to account for the fixed navbar */}
+              <div className="h-20"></div>
+              
+              {/* Main Navigation Links */}
+              <div className="flex-1 flex flex-col justify-center px-6">
+                <div className="space-y-4">
+                  {navItems.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * (index + 1) }}
+                    >
+                      <Link
+                        to={item.to}
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={500}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center justify-between px-6 py-4 rounded-lg transition-all duration-300 backdrop-blur-sm border border-green-500/20 bg-white/5 hover:bg-green-900/20 hover:border-green-500/40 cursor-pointer group"
+                      >
+                        <span className="text-xl font-medium text-white group-hover:text-green-400 transition-colors">
+                          {item.label}
+                        </span>
+                        <motion.div
+                          className="text-green-500 group-hover:text-green-400"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                        >
+                          →
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                  
+                  {/* CTA Button */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * (navItems.length + 1) }}
+                  >
+                    <Link
+                      to="cta"
+                      spy={true}
+                      smooth={true}
+                      offset={-80}
+                      duration={500}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <motion.button
+                        whileTap={{ scale: 0.95 }}
+                        className="w-full mt-2 px-6 py-4 text-xl bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-medium shadow-lg shadow-green-500/20 hover:shadow-green-500/40 transition-shadow"
+                      >
+                        {t.nav.contact}
+                      </motion.button>
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Footer Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="px-6 pb-8"
               >
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-medium shadow-lg shadow-green-500/20"
-                >
-                  {t.nav.contact}
-                </motion.button>
-              </Link>
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-green-500/20">
+                  {/* Company Info */}
+                  <div className="text-center mb-4">
+                    <div className="flex items-center justify-center space-x-3 mb-2">
+                      <div>
+                        <h3 className="text-lg font-bold text-white">BridgeOne Africa</h3>
+                        <p className="text-xs text-gray-400 tracking-wider">Investment Solutions</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Decorative Elements */}
+                  <div className="flex justify-center space-x-6 text-sm">
+                    <div className="flex items-center space-x-2 text-green-400">
+                      <Globe className="h-4 w-4" />
+                      <span className="text-gray-300">Global Reach</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-green-400">
+                      <span className="text-2xl">💎</span>
+                      <span className="text-gray-300">Premium Service</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

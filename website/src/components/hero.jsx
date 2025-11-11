@@ -40,6 +40,26 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden gravita-font">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 w-full h-full">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url("/2.jpg")',
+          }}
+        />
+        
+        {/* Dark Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60" />
+        
+        {/* Gradient Overlay for blending */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black" />
+        
+        {/* Green tint overlay for brand consistency */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-transparent to-green-900/10 mix-blend-overlay" />
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -82,7 +102,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -91,7 +111,7 @@ const Hero = () => {
         >
           {/* Badge */}
           <motion.div variants={itemVariants} className="flex justify-center mb-6">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-900/30 border border-green-500/30 rounded-full">
+            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-900/30 border border-green-500/30 rounded-full backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-green-400" />
               <span className="text-green-400 text-sm font-medium">
                 {t.hero.badge}
@@ -115,7 +135,7 @@ const Hero = () => {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed px-4"
+            className="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed px-4 gravita-font"
           >
             {t.hero.subtitle}
           </motion.p>
@@ -131,7 +151,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all flex items-center space-x-2"
               >
-                <span>{t.hero.cta}</span>
+                <span className='gravita-font'>{t.hero.cta}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>
@@ -139,7 +159,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border border-green-500/50 text-green-500 rounded-lg font-semibold hover:bg-green-900/20 transition-all"
+                className="px-8 py-4 border border-green-500/50 text-green-500 rounded-lg font-semibold hover:bg-green-900/20 transition-all gravita-font backdrop-blur-sm"
               >
                 {t.hero.learnMore}
               </motion.button>
@@ -154,7 +174,7 @@ const Hero = () => {
             <motion.div
               variants={floatingVariants}
               animate="animate"
-              className="flex flex-col items-center space-y-3 p-6 bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-500/20 rounded-xl hover:border-green-500/40 transition-colors"
+              className="flex flex-col items-center space-y-3 p-6 bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-500/20 rounded-xl hover:border-green-500/40 transition-colors backdrop-blur-sm"
             >
               <div className="p-3 bg-green-500/10 rounded-lg">
                 <TrendingUp className="w-6 h-6 text-green-500" />
@@ -169,7 +189,7 @@ const Hero = () => {
               variants={floatingVariants}
               animate="animate"
               transition={{ delay: 0.2 }}
-              className="flex flex-col items-center space-y-3 p-6 bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-500/20 rounded-xl hover:border-green-500/40 transition-colors"
+              className="flex flex-col items-center space-y-3 p-6 bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-500/20 rounded-xl hover:border-green-500/40 transition-colors backdrop-blur-sm"
             >
               <div className="p-3 bg-green-500/10 rounded-lg">
                 <Globe2 className="w-6 h-6 text-green-500" />
@@ -184,7 +204,7 @@ const Hero = () => {
               variants={floatingVariants}
               animate="animate"
               transition={{ delay: 0.4 }}
-              className="flex flex-col items-center space-y-3 p-6 bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-500/20 rounded-xl hover:border-green-500/40 transition-colors"
+              className="flex flex-col items-center space-y-3 p-6 bg-gradient-to-br from-green-900/20 to-green-900/5 border border-green-500/20 rounded-xl hover:border-green-500/40 transition-colors backdrop-blur-sm"
             >
               <div className="p-3 bg-green-500/10 rounded-lg">
                 <Sparkles className="w-6 h-6 text-green-500" />
@@ -199,7 +219,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none z-10"></div>
     </section>
   );
 };

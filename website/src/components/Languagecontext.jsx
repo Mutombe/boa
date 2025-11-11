@@ -116,7 +116,7 @@ const translations = {
       email: 'Email',
       phone: 'Phone',
       address: 'Address',
-      rights: '© 2024 BridgeOne Africa. All rights reserved.',
+      rights: '© 2025 BridgeOne Africa. All rights reserved.',
     },
   },
   nd: {
@@ -224,7 +224,7 @@ const translations = {
       email: 'I-imeyili',
       phone: 'Ucingo',
       address: 'Ikheli',
-      rights: '© 2024 BridgeOne Afrika. Wonke amalungelo agodliwe.',
+      rights: '© 2025 BridgeOne Afrika. Wonke amalungelo agodliwe.',
     },
   },
   es: {
@@ -332,7 +332,7 @@ const translations = {
       email: 'Correo',
       phone: 'Teléfono',
       address: 'Dirección',
-      rights: '© 2024 BridgeOne Africa. Todos los derechos reservados.',
+      rights: '© 2025 BridgeOne Africa. Todos los derechos reservados.',
     },
   },
 };
