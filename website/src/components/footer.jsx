@@ -92,13 +92,9 @@ const Footer = () => {
             <div className="flex items-center space-x-3">
               <div className="relative">
                 <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl"></div>
-                <div className="relative w-14 h-14 bg-gradient-to-br from-green-600/20 to-green-500/20 backdrop-blur-sm border border-green-500/30 rounded-xl flex items-center justify-center">
-                  <img src="/logo.png" alt="BridgeOne Logo" className="w-10 h-6" />
+                <div className="relative w-16 h-14 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                  <img src="/logo.png" alt="BridgeOne Logo" className="w-16 h-6" />
                 </div>
-              </div>
-              <div>
-                <h3 className="text-white font-bold text-lg">BridgeOne Africa</h3>
-                <p className="text-green-400 text-xs">Investment Solutions</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">

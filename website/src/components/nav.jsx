@@ -66,8 +66,8 @@ const Navbar = () => {
             <div className="flex items-center space-x-3">
               <div className="relative">
                 <div className="absolute inset-0 bg-green-500/20 blur-xl"></div>
-                <div className="relative flex items-center justify-center w-24 h-13">
-                  <img src="/logo.png" alt="BridgeOne Logo" className="w-24 h-13" />
+                <div className="relative flex items-center justify-center w-30 h-13">
+                  <img src="/logo.png" alt="BridgeOne Logo" className="w-30 h-13" />
                 </div>
               </div>
             </div>
